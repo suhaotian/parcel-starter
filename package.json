@@ -1,0 +1,51 @@
+{
+  "name": "parcel-starter",
+  "targets": {
+    "server": {
+      "source": "server/index.ts",
+      "distDir": "dist/server/",
+      "engines": {
+        "node": "^12.0.0"
+      }
+    },
+    "server-dev": {
+      "source": "server/index.ts",
+      "distDir": "dist/server-dev/",
+      "engines": {
+        "node": "> 12.0.0"
+      }
+    }
+  },
+  "browserslist": [
+    "> 0.5%, last 2 versions, not dead"
+  ],
+  "alias": {
+    "~/": "./"
+  },
+  "scripts": {
+    "start": "yarn build:server-dev && concurrently \"yarn nodemon:server\" \"yarn start:server\" \"yarn start:client\"",
+    "start:client": "parcel serve client/index.html --dist-dir dist/client/ --port 4095 --open chrome",
+    "start:server": "parcel watch --target server-dev",
+    "nodemon:server": "nodemon dist/server-dev/index.js",
+    "build:server": "parcel build --target server",
+    "build:server-dev": "parcel build --target server-dev",
+    "build:client": "parcel build --target client"
+  },
+  "dependencies": {
+    "axios": "^0.23.0",
+    "fastify": "^3.22.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "devDependencies": {
+    "@types/react": "^17.0.29",
+    "@types/react-dom": "^17.0.9",
+    "nodemon": "^2.0.13",
+    "parcel": "^2.0.0",
+    "typescript": "^4.4.4",
+    "concurrently": "^6.3.0"
+  },
+  "version": "1.0.0",
+  "author": "suhaotian",
+  "license": "MIT"
+}
