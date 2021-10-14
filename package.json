@@ -1,8 +1,11 @@
 {
   "name": "parcel-starter",
+  "alias": {
+    "~/": "./src/"
+  },
   "targets": {
     "client": {
-      "source": "client/index.html",
+      "source": "src/client/index.html",
       "distDir": "dist/client/",
       "publicUrl": "./",
       "engines": {
@@ -10,14 +13,14 @@
       }
     },
     "server": {
-      "source": "server/index.ts",
+      "source": "src/server/index.ts",
       "distDir": "dist/server/",
       "engines": {
         "node": "^12.0.0"
       }
     },
     "server-dev": {
-      "source": "server/index.ts",
+      "source": "src/server/index.ts",
       "distDir": "dist/server-dev/",
       "engines": {
         "node": "> 12.0.0"
@@ -27,12 +30,9 @@
   "browserslist": [
     "> 0.5%, last 2 versions, not dead"
   ],
-  "alias": {
-    "~/": "./"
-  },
   "scripts": {
     "start": "yarn build:server-dev && concurrently \"yarn nodemon:server\" \"yarn start:server\" \"yarn start:client\"",
-    "start:client": "parcel serve client/index.html --dist-dir dist/client-dev/ --open chrome",
+    "start:client": "parcel serve src/client/index.html --dist-dir dist/client-dev/ --open chrome",
     "start:server": "parcel watch --target server-dev",
     "nodemon:server": "nodemon dist/server-dev/index.js",
     "build": "concurrently \"yarn build:server\" \"yarn build:client\"",
