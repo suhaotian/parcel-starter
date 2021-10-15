@@ -49,6 +49,7 @@
     "typeorm": "^0.2.38"
   },
   "devDependencies": {
+    "@parcel/transformer-typescript-tsc": "^2.0.0",
     "@types/react": "^17.0.29",
     "@types/react-dom": "^17.0.9",
     "concurrently": "^6.3.0",
