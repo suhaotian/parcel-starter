@@ -38,7 +38,8 @@
     "build": "concurrently \"yarn build:server\" \"yarn build:client\"",
     "build:server": "parcel build --target server",
     "build:server-dev": "parcel build --target server-dev",
-    "build:client": "parcel build --target client"
+    "build:client": "parcel build --target client",
+    "lint": "tsc --noEmit"
   },
   "dependencies": {
     "axios": "^0.23.0",
