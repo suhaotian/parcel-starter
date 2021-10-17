@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import App from "~/client/App";
-import { getId } from "~/common/utils";
+import App from "/src/client/App";
+import { getId } from "/src/common/utils";
 
 console.log(getId());
 

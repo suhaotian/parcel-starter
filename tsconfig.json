@@ -2,7 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "~/*": ["./src/*"]
+      "/": ["./"]
     },
     "jsx": "react",
     "skipLibCheck": true,

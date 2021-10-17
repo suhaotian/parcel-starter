@@ -1,5 +1,6 @@
 import fastify from "fastify";
-import { getId } from "~/common/utils";
+import { getId } from "/src/common/utils";
+
 const app = fastify();
 
 app.get("/", async () => "hi");
