@@ -44,8 +44,11 @@
   "dependencies": {
     "axios": "^0.23.0",
     "fastify": "^3.22.0",
+    "http-proxy-middleware": "^2.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "socket.io": "^4.3.1",
+    "socket.io-client": "^4.3.2",
     "wait-on": "^6.0.0"
   },
   "devDependencies": {
