@@ -3,7 +3,6 @@ import echarts, { ECOption } from './setup';
 
 export type EchartProp = {
   option: ECOption,
-  key?: string,
   style?: {
     width: string,
     height: string
@@ -20,7 +19,7 @@ const removeUndefined = (obj: object) => {
   return obj
 }
 
-const Echart: React.FC<EchartProp> = ({ option, key, className, style = { width: '100%', height: '100%' } }) => {
+const Echart: React.FC<EchartProp> = ({ option, className, style = { width: '100%', height: '100%' } }) => {
 
   const chartRef = useRef<HTMLDivElement>(null)
   const [echartsInstance, setEchartsInstance] = useState<echarts.ECharts>()
@@ -49,8 +48,8 @@ const Echart: React.FC<EchartProp> = ({ option, key, className, style = { width:
 
 
   const obj = useMemo(() => {
-    return removeUndefined({ option, key, className, style });
-  }, [option, key, className, style])
+    return removeUndefined({ option, className, style });
+  }, [option, className, style])
 
   return (
     <div ref={chartRef} {...obj} />
