@@ -4,6 +4,14 @@
     "/": "./"
   },
   "targets": {
+    "echarts": {
+      "source": "./echarts/index.html",
+      "distDir": "./dist/echarts/",
+      "publicUrl": "./",
+      "engines": {
+        "browsers": "> 0.5%, last 2 versions, not dead"
+      }
+    },
     "client": {
       "source": "src/client/index.html",
       "distDir": "dist/client/",
@@ -34,6 +42,8 @@
     "start": "yarn build:server-dev && concurrently \"yarn nodemon:server\" \"yarn start:server\" \"yarn start:client\"",
     "start:client": "parcel serve src/client/index.html --dist-dir dist/client-dev/ --open chrome -p 3020",
     "start:server": "parcel watch --target server-dev",
+    "start:echarts": "parcel serve --target echarts --open chrome -p 8020",
+    "build:echarts": "parcel build --target echarts --no-source-maps",
     "nodemon:server": "nodemon dist/server-dev/index.js",
     "build": "concurrently \"yarn build:server\" \"yarn build:client\"",
     "build:server": "parcel build --target server",
@@ -42,18 +52,20 @@
     "lint": "tsc --noEmit"
   },
   "dependencies": {
-    "axios": "^0.23.0",
-    "fastify": "^3.22.0",
+    "axios": "^0.24.0",
+    "echarts": "^5.2.2",
+    "fastify": "^3.24.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-use": "^17.3.1",
     "wait-on": "^6.0.0"
   },
   "devDependencies": {
     "@types/react": "^17.0.29",
     "@types/react-dom": "^17.0.9",
     "concurrently": "^6.3.0",
-    "nodemon": "^2.0.13",
-    "parcel": "^2.0.0",
+    "nodemon": "^2.0.15",
+    "parcel": "^2.0.1",
     "typescript": "^4.4.4"
   },
   "version": "1.0.0",
