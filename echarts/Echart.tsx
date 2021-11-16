@@ -26,7 +26,11 @@ const Echart: React.FC<EchartProp> = ({ option, key, className, style = { width:
   const [echartsInstance, setEchartsInstance] = useState<echarts.ECharts>()
 
   useLayoutEffect(() => {
-    setEchartsInstance(echarts.init(chartRef.current as HTMLDivElement))
+    const instance = echarts.init(chartRef.current as HTMLDivElement);
+    setEchartsInstance(instance)
+    return () => {
+      instance.dispose();
+    }
   }, [])
 
   useEffect(() => {
