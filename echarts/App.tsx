@@ -1,6 +1,6 @@
 import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import Echart from './Echart'
-import echarts from './setup';
+import echarts from './echarts-ref';
 
 
 export default function App() {
