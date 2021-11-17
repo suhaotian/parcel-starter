@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo, useLayoutEffect } from 'react'
+import React, { useState, useRef, useEffect, useMemo, useLayoutEffect, useImperativeHandle, forwardRef, Ref } from 'react'
 import echarts, { ECOption } from './setup';
 
 export type EchartProp = {
@@ -19,7 +19,8 @@ const removeUndefined = (obj: object) => {
   return obj
 }
 
-const Echart: React.FC<EchartProp> = ({ option, className, style = { width: '100%', height: '100%' } }) => {
+const Echart = ({ option, className, style = { width: '100%', height: '100%' } }: EchartProp, ref: Ref<echarts.ECharts | undefined
+>) => {
 
   const chartRef = useRef<HTMLDivElement>(null)
   const [echartsInstance, setEchartsInstance] = useState<echarts.ECharts>()
@@ -46,14 +47,17 @@ const Echart: React.FC<EchartProp> = ({ option, className, style = { width: '100
     echartsInstance?.setOption(option)
   }, [echartsInstance, option])
 
+  useImperativeHandle(ref, () => (echartsInstance));
+
 
   const obj = useMemo(() => {
     return removeUndefined({ option, className, style });
   }, [option, className, style])
+
 
   return (
     <div ref={chartRef} {...obj} />
   )
 }
 
-export default Echart
+export default forwardRef(Echart);

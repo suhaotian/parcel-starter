@@ -1,9 +1,20 @@
-import React from 'react'
+import React, { useEffect, useLayoutEffect, useRef } from 'react'
 import Echart from './Echart'
+import echarts from './setup';
 
 
 export default function App() {
-  return <Echart style={{
+  const ref = useRef<echarts.ECharts | undefined>(undefined);
+
+  useLayoutEffect(() => {
+    console.log(ref.current);
+    setTimeout(() => {
+      console.log(ref.current, ref.current?.getWidth());
+    }, 1000)
+  }, [ref.current]);
+
+
+  return <Echart ref={ref} style={{
     width: '100%',
     height: '100vh',
   }} option={{
