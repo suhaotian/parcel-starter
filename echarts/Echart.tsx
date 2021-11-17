@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useMemo, useLayoutEffect, useImperativeHandle, forwardRef, Ref } from 'react'
-import echarts, { ECOption } from './echarts-ref';
+import echarts, { ECOption } from './echarts';
 
 export type EchartProp = {
   option: ECOption,
